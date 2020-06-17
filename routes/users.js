@@ -5,7 +5,7 @@ var router = express.Router();
 //var data = require('../data/test.json'); 
 
   
-
+// show list of users
 router.get('/', function(req, res, next) { 
 
   var title = "Our Users Page"; 
@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
 
 }); 
 
-//show an individual user page
+//show an individual user 
 router.get('/view/:id', function(req, res, next) { 
 
   var title = "User Page"; 
@@ -53,5 +53,20 @@ router.get('/view/:id', function(req, res, next) {
 
 }); 
   
+
+// form to add a user
+router.get('/add', function(req, res, next) { 
+
+  var title = "Add User"; 
+
+      res.render('users/add', { 
+
+          title:title 
+
+      }); 
+
+}); 
+
+
 
 module.exports = router; 

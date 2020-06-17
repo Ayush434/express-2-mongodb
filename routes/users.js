@@ -59,7 +59,7 @@ router.get('/add', function(req, res, next) {
 
   var title = "Add User"; 
 
-      res.render('views/users/add', { 
+      res.render('users/add', { 
 
           title:title 
 

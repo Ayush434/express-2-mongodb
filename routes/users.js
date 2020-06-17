@@ -1,15 +1,33 @@
-var express = require('express');
-var router = express.Router();
-var data = require('../data/test.json');
+var express = require('express'); 
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  //res.send('respond with a resource');
-  var title = "Our Users Page";
-  res.render('users/index',{
-    title:title,
-    users:data
-  });
-});
+var router = express.Router(); 
 
-module.exports = router;
+//var data = require('../data/test.json'); 
+
+  
+
+router.get('/', function(req, res, next) { 
+
+  var title = "Our Users Page"; 
+
+  var db = req.db; 
+
+  var collection = db.get('test_collection'); 
+
+  collection.find({},{limit:20},function(e,docs){ 
+
+      res.render('users/index', { 
+
+          title:title, 
+
+          users:docs 
+
+      }); 
+
+  }); 
+
+}); 
+
+  
+
+module.exports = router; 
